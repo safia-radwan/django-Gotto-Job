@@ -13,3 +13,13 @@ class job(models.Model):
     decription=models.TextField(max_length=1000,default="")
     about_campany=models.TextField(max_length=1000,default="")
     experience=models.IntegerField(default=1)
+    category=models.ForeignKey('category',on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+    
+
+class category(models.Model):
+    name=models.CharField(max_length=25)
+    def __str__(self):
+        return self.name
